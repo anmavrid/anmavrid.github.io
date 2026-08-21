@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invited Talks &middot; Anastasia Mavridou</title>
+<meta name="description" content="Invited talks and keynotes by Anastasia Mavridou on formal methods, requirements engineering, and FRET.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;
+    --text:#1c1c1a;
+    --text-soft:#54524d;
+    --text-faint:#918f88;
+    --link:#2452b8;
+    --rule:#e2e0da;
+    --rule-soft:#eeece6;
+    --fret-mode:#7a4a22;
+    --fret-condition:#bd670d;
+    --fret-component:#1f7a3d;
+    --fret-shall:#141311;
+    --fret-timing:#1d5fbf;
+    --fret-response:#7a2e9e;
+    --font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+  body{
+    margin:0; background:var(--bg); color:var(--text);
+    font-family:var(--font); font-size:17px; line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .page{max-width:860px; margin:0 auto; padding:32px 32px 90px; scroll-margin-top:80px;}
+  a{color:var(--link); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  hr{border:none; border-top:1px solid var(--rule); margin:38px 0;}
+
+  /* ---------- TOP NAV ---------- */
+  .topnav{
+    position:sticky; top:0; z-index:50; background:rgba(255,255,255,.92);
+    -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--rule); margin-bottom:32px;
+  }
+  .topnav-inner{
+    max-width:860px; margin:0 auto; padding:12px 32px;
+    display:flex; gap:8px; align-items:center; overflow-x:auto; scrollbar-width:none;
+  }
+  .topnav-inner::-webkit-scrollbar{display:none;}
+  .topnav a{
+    flex:0 0 auto; font-size:.86rem; font-weight:600; color:var(--text-soft);
+    padding:6px 14px; border:1px solid var(--rule); border-radius:20px; white-space:nowrap;
+    transition:border-color .15s, color .15s, background .15s;
+  }
+  .topnav a:hover{border-color:var(--text); color:var(--text); text-decoration:none;}
+  p{margin:0 0 16px;}
+
+  /* ---------- HEADER ---------- */
+  .header{display:flex; gap:26px; align-items:flex-start;}
+  .avatar{width:132px; height:auto; border-radius:3px; flex:0 0 auto; display:block;}
+  .header-text h1{font-size:1.95rem; margin:0 0 7px; font-weight:700; letter-spacing:-.01em;}
+  .tagline{margin:0 0 12px; color:var(--text-soft); font-size:1.06rem;}
+  .contact-links{margin:0; display:flex; gap:18px; flex-wrap:wrap;}
+  .contact-links a{
+    display:inline-flex; align-items:center; gap:6px; color:var(--text-soft);
+    font-size:.94rem; border-bottom:1px solid transparent; padding-bottom:1px;
+  }
+  .contact-links a:hover{color:var(--link); border-color:var(--link); text-decoration:none;}
+  .contact-links svg{width:16px; height:16px; flex:0 0 auto;}
+  @media(max-width:520px){
+    .header{flex-direction:column; gap:18px;}
+    .avatar{width:104px;}
+  }
+
+  /* ---------- FRETISH ---------- */
+  .fretish{border-left:3px solid var(--rule); margin:38px 0 8px; padding:2px 0 2px 22px;}
+  .fretish-label{margin:0 0 12px; font-family:var(--mono); font-size:.78rem; text-transform:uppercase; letter-spacing:.08em; color:var(--text-faint);}
+  .fretish-sentence{margin:0; font-size:1.2rem; line-height:1.75;}
+  .fretish-sentence .tag{font-weight:700; border-bottom:2px solid; padding-bottom:1px;}
+  .tag.mode{color:var(--fret-mode); border-color:var(--fret-mode);}
+  .tag.condition{color:var(--fret-condition); border-color:var(--fret-condition);}
+  .tag.component{color:var(--fret-component); border-color:var(--fret-component);}
+  .tag.shall{color:var(--fret-shall); border-color:var(--fret-shall);}
+  .tag.timing{color:var(--fret-timing); border-color:var(--fret-timing);}
+  .tag.response{color:var(--fret-response); border-color:var(--fret-response);}
+  .parse-row{margin-top:0; max-height:0; overflow:hidden; opacity:0; transition:max-height .3s ease, opacity .3s ease;}
+  .parse-row.open{max-height:280px; opacity:1; margin-top:16px;}
+  .parse-item{font-family:var(--mono); font-size:.86rem; margin-bottom:6px;}
+  .parse-item .lbl{font-weight:700; display:inline-block; width:100px;}
+  .parse-item .val{color:var(--text-soft);}
+  .parse-toggle{margin-top:16px; background:none; border:none; padding:0; color:var(--link); font-family:var(--font); font-size:.94rem; cursor:pointer;}
+  .parse-toggle:hover{text-decoration:underline;}
+
+  /* ---------- SECTIONS ---------- */
+  section{margin-bottom:6px;}
+  h2{
+    font-family:var(--mono); font-size:.8rem; text-transform:uppercase; letter-spacing:.12em;
+    color:var(--text-faint); font-weight:700; margin:0 0 20px;
+  }
+
+  /* career */
+  .t-entry{margin-bottom:22px;}
+  .t-entry:last-child{margin-bottom:0;}
+  .t-date{display:block; font-family:var(--mono); font-size:.82rem; color:var(--text-faint); margin-bottom:4px;}
+  .t-entry p{margin:0;}
+  .t-entry b{font-weight:700;}
+
+  /* software */
+  .sw-entry{margin-bottom:18px;}
+  .sw-entry:last-child{margin-bottom:0;}
+  .sw-entry b{font-weight:700;}
+
+  /* publications */
+  .pub-controls{display:flex; flex-wrap:wrap; gap:10px 16px; align-items:baseline; font-size:.94rem; margin-bottom:8px;}
+  .filter-links a{color:var(--text-soft); margin-right:14px; padding-bottom:2px;}
+  .filter-links a:last-child{margin-right:0;}
+  .filter-links a.active{color:var(--text); font-weight:700; border-bottom:1px solid var(--text);}
+  .filter-links a:hover{text-decoration:none; color:var(--link);}
+  #pubSearch{
+    border:none; border-bottom:1px solid var(--rule); background:none; font-family:var(--font);
+    font-size:.94rem; padding:3px 2px; color:var(--text); flex:1 1 160px; min-width:140px;
+  }
+  #pubSearch:focus{outline:none; border-color:var(--link);}
+  .pub-count{font-family:var(--mono); font-size:.76rem; color:var(--text-faint); margin:8px 0 22px;}
+  .pub-entry{margin-bottom:17px; padding-bottom:17px; border-bottom:1px solid var(--rule-soft);}
+  .pub-entry:last-child{border-bottom:none; margin-bottom:0; padding-bottom:0;}
+  .pub-title{margin:0 0 3px; font-weight:700; line-height:1.4;}
+  .pub-meta{margin:0; font-size:.92rem; color:var(--text-soft);}
+  .pub-venue{color:var(--text-faint);}
+  .pub-tag{font-size:.76rem; color:var(--fret-response); margin-left:7px;}
+
+  /* talks */
+  .talk-entry{margin-bottom:17px;}
+  .talk-entry:last-child{margin-bottom:0;}
+  .talk-year{font-family:var(--mono); font-size:.82rem; color:var(--text-faint);}
+  .talk-entry p{margin:2px 0 0;}
+  .talk-title{font-weight:700;}
+  .talk-sub{color:var(--text-soft); font-size:.93rem;}
+
+  .footer-text{font-size:.92rem; color:var(--text-soft);}
+
+  /* news */
+  .news-entry{margin-bottom:16px; display:flex; gap:16px;}
+  .news-entry:last-child{margin-bottom:0;}
+  .news-date{font-family:var(--mono); font-size:.82rem; color:var(--text-faint); flex:0 0 62px; padding-top:2px;}
+  .news-entry p{margin:0;}
+
+  /* selected publications teaser + view-all link */
+  .pub-viewall{
+    display:inline-block; margin-top:6px; font-size:.94rem; color:var(--link);
+    border-bottom:1px solid var(--rule);
+  }
+  .pub-viewall:hover{border-color:var(--link); text-decoration:none;}
+
+  /* publications page back link */
+  .back-link{display:inline-block; margin-bottom:28px; font-size:.94rem; color:var(--text-soft);}
+  .back-link:hover{color:var(--link); text-decoration:none;}
+  .page-title{font-size:1.6rem; font-weight:700; margin:0 0 8px;}
+  .page-sub{color:var(--text-soft); margin:0 0 32px;}
+</style>
+</head>
+<body>
+
+<header class="topnav">
+  <nav class="topnav-inner">
+    <a href="publications.html">Publications</a>
+    <a href="#top">Invited Talks</a>
+    <a href="software.html">Software</a>
+  </nav>
+</header>
+
+<div class="page" id="top">
+
+  <a class="back-link" href="index.html">&larr; Anastasia Mavridou</a>
+  <h1 class="page-title">Invited Talks</h1>
+  <p class="page-sub">11 invited talks and keynotes, 2017 to 2026.</p>
+
+    <div class="talk-entry">
+      <span class="talk-year">2026</span>
+      <p><span class="talk-title">Fighting AI with AI: A Requirements-based Approach</span></p>
+      <p class="talk-sub">Keynote, Software Engineering and AI Symposium, Hasso Plattner Institute, Germany; Host: Prof. Walid Maalej</p>
+    </div>
+    <div class="talk-entry">
+      <span class="talk-year">2025</span>
+      <p><span class="talk-title">Requirement Elicitation and Analysis with FRET</span></p>
+      <p class="talk-sub">Invited lectures, SPACERAISE school, Italy, Hosts: Prof. Franco Raimondi and Patrizio Pelliccione</p>
+    </div>
+    <div class="talk-entry">
+      <span class="talk-year">2024</span>
+      <p><span class="talk-title">Let's Speak FRETish</span></p>
+      <p class="talk-sub">Manchester University, UK, Hosts: Prof. Marie Farrell and Prof. Michael Fisher</p>
+    </div>
+    <div class="talk-entry">
+      <span class="talk-year">2023</span>
+      <p><span class="talk-title">Formal Requirements Elicitation With FRET</span></p>
+      <p class="talk-sub">Technical University of Denmark; Host: Prof. Alberto Lluch Lafuente</p>
+    </div>
+    <div class="talk-entry">
+      <span class="talk-year">2022</span>
+      <p><span class="talk-title">Capturing and Analyzing Requirements with FRET</span></p>
+      <p class="talk-sub">Invited tutorial, NASA Formal Methods (NFM) Symposium, USA</p>
+    </div>
+    <div class="talk-entry">
+      <span class="talk-year">2019</span>
+      <p><span class="talk-title">Formal Requirements Elicitation with FRET</span></p>
+      <p class="talk-sub">Carnegie Mellon University Silicon Valley, USA; Host: Dr. Corina Pasareanu</p>
+    </div>
+    <div class="talk-entry">
+      <span class="talk-year">2019</span>
+      <p><span class="talk-title">Correct-by-Design Smart Contracts with VeriSolid and FRET</span></p>
+      <p class="talk-sub">Institute of Industrial Science, University of Tokyo &amp; NTT Research, Japan; Host: Prof. Kanta Matsuura</p>
+    </div>
+    <div class="talk-entry">
+      <span class="talk-year">2019</span>
+      <p><span class="talk-title">Bridging the Gap Between Requirements and Model Analysis</span></p>
+      <p class="talk-sub">Cyber-Physical Systems Research Center, UC Santa Cruz, USA; Host: Prof. Ricardo Sanfelice</p>
+    </div>
+    <div class="talk-entry">
+      <span class="talk-year">2018</span>
+      <p><span class="talk-title">Resilient and Trustworthy Transactive Platform for Smart and Connected Communities</span></p>
+      <p class="talk-sub">18th Annual High Confidence Software and Systems Conference (HCSS), USA</p>
+    </div>
+    <div class="talk-entry">
+      <span class="talk-year">2017</span>
+      <p><span class="talk-title">A Design Studio for Modeling, Analyzing, and Generating Systems with BIP</span></p>
+      <p class="talk-sub">17th Annual High Confidence Software and Systems Conference (HCSS), USA</p>
+    </div>
+    <div class="talk-entry">
+      <span class="talk-year">2017</span>
+      <p><span class="talk-title">Modelling Architecture Styles</span></p>
+      <p class="talk-sub">Institute for Systems Research, University of Maryland, USA; Host: Prof. John Baras</p>
+    </div>
+
+</div>
+
+</body>
+</html>
