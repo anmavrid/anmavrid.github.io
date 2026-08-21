@@ -109,6 +109,16 @@
   .parse-toggle{margin-top:16px; background:none; border:none; padding:0; color:var(--link); font-family:var(--font); font-size:.94rem; cursor:pointer;}
   .parse-toggle:hover{text-decoration:underline;}
 
+  .fretish-try{margin-top:26px; padding-top:22px; border-top:1px solid var(--rule);}
+  .fretish-try-label{margin:0 0 12px; font-family:var(--mono); font-size:.78rem; text-transform:uppercase; letter-spacing:.08em; color:var(--text-faint);}
+  .try-sentence .tag[contenteditable]{
+    cursor:text; outline:none; border-bottom-style:dashed; min-width:10px; display:inline-block;
+  }
+  .try-sentence .tag[contenteditable]:hover,
+  .try-sentence .tag[contenteditable]:focus{background:rgba(36,82,184,.08); border-radius:2px;}
+  .try-reset{margin-top:14px; background:none; border:none; padding:0; color:var(--link); font-family:var(--font); font-size:.9rem; cursor:pointer;}
+  .try-reset:hover{text-decoration:underline;}
+
   /* ---------- SECTIONS ---------- */
   section{margin-bottom:6px;}
   h2{
@@ -146,6 +156,11 @@
   .pub-meta{margin:0; font-size:.92rem; color:var(--text-soft);}
   .pub-venue{color:var(--text-faint);}
   .pub-tag{font-size:.76rem; color:var(--fret-response); margin-left:7px;}
+  .pub-oa{
+    display:inline-block; margin-left:7px; font-family:var(--mono); font-size:.68rem; font-weight:700;
+    letter-spacing:.03em; color:var(--fret-component); border:1px solid var(--fret-component);
+    border-radius:3px; padding:1px 6px; vertical-align:middle;
+  }
 
   .footer-text{font-size:.92rem; color:var(--text-soft);}
 
@@ -206,6 +221,12 @@
       <div class="parse-item"><span class="lbl" style="color:var(--fret-response)">response</span><span class="val">what must be satisfied: the point of this site</span></div>
     </div>
     <button class="parse-toggle" id="parseToggle" aria-expanded="false" aria-controls="parseRow">show parse &#9656;</button>
+
+    <div class="fretish-try">
+      <p class="fretish-try-label">Now you try: click any colored word below and type your own</p>
+      <p class="fretish-sentence try-sentence">In <span class="tag mode" contenteditable="true" spellcheck="false" data-default="visitor mode">visitor mode</span>, upon <span class="tag condition" contenteditable="true" spellcheck="false" data-default="you scroll to this section">you scroll to this section</span>, <span class="tag component" contenteditable="true" spellcheck="false" data-default="this widget">this widget</span> <span class="tag shall">shall</span> <span class="tag timing" contenteditable="true" spellcheck="false" data-default="immediately">immediately</span> <span class="tag response" contenteditable="true" spellcheck="false" data-default="let you write your own FRETish requirement">let you write your own FRETish requirement</span>.</p>
+      <button class="try-reset" id="tryReset">reset to example</button>
+    </div>
   </div>
 
   <hr>
@@ -214,7 +235,7 @@
     <h2>about</h2>
     <p>I'm the Technical Lead of <a href="https://github.com/NASA-SW-VnV/fret" target="_blank" rel="noopener">FRET</a>, NASA's open-source tool that turns ambiguous, natural-language requirements into precise specifications a machine can check, and I lead the team of engineers and researchers who build it. I'm also a member of the <a href="https://www.nasa.gov/intelligent-systems-division/robust-software-engineering/" target="_blank" rel="noopener">Robust Software Engineering (RSE) Group</a> at <a href="https://www.nasa.gov/ames/" target="_blank" rel="noopener">NASA Ames Research Center</a>, where I research and build tools for verifying and validating safety-critical systems.</p>
     <p>In collaboration with engineers, I apply <a href="https://github.com/NASA-SW-VnV/fret" target="_blank" rel="noopener">FRET</a> to help verify complex, often autonomous, aerospace systems before they fly.</p>
-    <p>I completed my postdoctoral research at <a href="https://www.vanderbilt.edu" target="_blank" rel="noopener">Vanderbilt University</a>'s <a href="https://isis.vanderbilt.edu" target="_blank" rel="noopener">Institute for Software Integrated Systems</a>, working under <a href="https://www.isis.vanderbilt.edu/user/46" target="_blank" rel="noopener">Prof. Janos Sztipanovits</a>. I hold a Doctor of Science from <a href="https://www.epfl.ch" target="_blank" rel="noopener">&Eacute;cole Polytechnique F&eacute;d&eacute;rale de Lausanne (EPFL)</a>, where I was fortunate to be advised by <a href="https://sifakis.net" target="_blank" rel="noopener">Prof. Joseph Sifakis</a> (<a href="https://amturing.acm.org/award_winners/sifakis_1701095.cfm" target="_blank" rel="noopener">2007 Turing Award</a> laureate) and <a href="https://www.bliudze.me/simon/" target="_blank" rel="noopener">Prof. Simon Bliudze</a>.</p>
+    <p>I completed my postdoctoral research at <a href="https://www.vanderbilt.edu" target="_blank" rel="noopener">Vanderbilt University</a>'s <a href="https://isis.vanderbilt.edu" target="_blank" rel="noopener">Institute for Software Integrated Systems</a>, working under <a href="https://www.isis.vanderbilt.edu/user/46" target="_blank" rel="noopener">Prof. Janos Sztipanovits</a>. I hold a Doctor of Science from <a href="https://www.epfl.ch" target="_blank" rel="noopener">&Eacute;cole Polytechnique F&eacute;d&eacute;rale de Lausanne (EPFL)</a>, where I was fortunate to be advised by <a href="https://sifakis.net" target="_blank" rel="noopener">Prof. Joseph Sifakis</a> (2007 <a href="https://amturing.acm.org/award_winners/sifakis_1701095.cfm" target="_blank" rel="noopener">Turing Award</a> laureate) and <a href="https://www.bliudze.me/simon/" target="_blank" rel="noopener">Prof. Simon Bliudze</a>.</p>
   </section>
 
   <hr>
@@ -286,7 +307,7 @@
     <h2>selected publications</h2>
 
     <div class="pub-entry">
-      <p class="pub-title"><a href="https://www-cs.stanford.edu/people/trippel/pubs/mendoza_ICSE26.pdf" target="_blank" rel="noopener">Automating Requirements Formalization: Using LLMs and Low-Complexity Distinguishing Traces for Semantic Validation</a></p>
+      <p class="pub-title"><a href="https://www-cs.stanford.edu/people/trippel/pubs/mendoza_ICSE26.pdf" target="_blank" rel="noopener">Automating Requirements Formalization: Using LLMs and Low-Complexity Distinguishing Traces for Semantic Validation</a><span class="pub-oa" title="Free to read, no paywall">PDF</span></p>
       <p class="pub-meta">Daniel Mendoza, <b>Anastasia Mavridou</b>, Andreas Katis, Caroline Trippel</p>
       <p class="pub-meta pub-venue">48th IEEE/ACM International Conference on Software Engineering (ICSE), 2026</p>
     </div>
@@ -298,7 +319,7 @@
     </div>
 
     <div class="pub-entry">
-      <p class="pub-title"><a href="https://doi.org/10.1007/978-3-031-13188-2_24" target="_blank" rel="noopener">Capture, Analyze, Diagnose: Realizability Checking of Requirements in FRET</a></p>
+      <p class="pub-title"><a href="https://doi.org/10.1007/978-3-031-13188-2_24" target="_blank" rel="noopener">Capture, Analyze, Diagnose: Realizability Checking of Requirements in FRET</a><span class="pub-oa" title="Free to read, no paywall">PDF</span></p>
       <p class="pub-meta">Andreas Katis, <b>Anastasia Mavridou</b>, Dimitra Giannakopoulou, Thomas Pressburger, Johann Schumann</p>
       <p class="pub-meta pub-venue">34th International Computer Aided Verification Conference (CAV), pp. 490-504, 2022</p>
     </div>
@@ -356,6 +377,28 @@ safe(() => {
     toggleBtn.innerHTML = open ? 'hide parse &#9662;' : 'show parse &#9656;';
   });
 }, 'parse toggle');
+
+safe(() => {
+  const editable = document.querySelectorAll('.try-sentence .tag[contenteditable]');
+  const resetBtn = document.getElementById('tryReset');
+
+  editable.forEach(span => {
+    // Prevent line breaks inside the inline fields.
+    span.addEventListener('keydown', e => {
+      if (e.key === 'Enter') e.preventDefault();
+    });
+    // Never leave a field empty, or the sentence stops reading as a sentence.
+    span.addEventListener('blur', () => {
+      if (span.textContent.trim() === '') {
+        span.textContent = span.dataset.default;
+      }
+    });
+  });
+
+  resetBtn.addEventListener('click', () => {
+    editable.forEach(span => { span.textContent = span.dataset.default; });
+  });
+}, 'try it yourself widget');
 </script>
 </body>
 </html>
