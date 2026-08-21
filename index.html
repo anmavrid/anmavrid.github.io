@@ -106,10 +106,10 @@
   .parse-item{font-family:var(--mono); font-size:.86rem; margin-bottom:6px;}
   .parse-item .lbl{font-weight:700; display:inline-block; width:100px;}
   .parse-item .val{color:var(--text-soft);}
-  .parse-toggle{margin-top:16px; background:none; border:none; padding:0; color:var(--link); font-family:var(--font); font-size:.94rem; cursor:pointer;}
+  .parse-toggle{margin-top:16px; margin-right:22px; background:none; border:none; padding:0; color:var(--link); font-family:var(--font); font-size:.94rem; cursor:pointer;}
   .parse-toggle:hover{text-decoration:underline;}
 
-  .fretish-try{margin-top:26px; padding-top:22px; border-top:1px solid var(--rule);}
+  .fretish-try{margin-top:16px; padding-top:16px; border-top:1px solid var(--rule-soft);}
   .fretish-try-label{margin:0 0 12px; font-family:var(--mono); font-size:.78rem; text-transform:uppercase; letter-spacing:.08em; color:var(--text-faint);}
   .try-sentence .tag[contenteditable]{
     cursor:text; outline:none; border-bottom-style:dashed; min-width:10px; display:inline-block;
@@ -221,9 +221,10 @@
       <div class="parse-item"><span class="lbl" style="color:var(--fret-response)">response</span><span class="val">what must be satisfied: the point of this site</span></div>
     </div>
     <button class="parse-toggle" id="parseToggle" aria-expanded="false" aria-controls="parseRow">show parse &#9656;</button>
+    <button class="parse-toggle" id="tryToggle" aria-expanded="false" aria-controls="fretishTryBody">try it yourself &#9656;</button>
 
-    <div class="fretish-try">
-      <p class="fretish-try-label">Now you try: click any colored word below and type your own</p>
+    <div class="fretish-try" id="fretishTryBody" hidden>
+      <p class="fretish-try-label">Click any colored word below and type your own</p>
       <p class="fretish-sentence try-sentence">In <span class="tag mode" contenteditable="true" spellcheck="false" data-default="visitor mode">visitor mode</span>, upon <span class="tag condition" contenteditable="true" spellcheck="false" data-default="you scroll to this section">you scroll to this section</span>, <span class="tag component" contenteditable="true" spellcheck="false" data-default="this widget">this widget</span> <span class="tag shall">shall</span> <span class="tag timing" contenteditable="true" spellcheck="false" data-default="immediately">immediately</span> <span class="tag response" contenteditable="true" spellcheck="false" data-default="let you write your own FRETish requirement">let you write your own FRETish requirement</span>.</p>
       <button class="try-reset" id="tryReset">reset to example</button>
     </div>
@@ -379,8 +380,18 @@ safe(() => {
 }, 'parse toggle');
 
 safe(() => {
+  const tryToggleBtn = document.getElementById('tryToggle');
+  const tryBody = document.getElementById('fretishTryBody');
   const editable = document.querySelectorAll('.try-sentence .tag[contenteditable]');
   const resetBtn = document.getElementById('tryReset');
+
+  tryToggleBtn.addEventListener('click', () => {
+    const open = tryBody.hidden;
+    tryBody.hidden = !open;
+    tryToggleBtn.setAttribute('aria-expanded', open);
+    tryToggleBtn.innerHTML = open ? 'hide the widget &#9662;' : 'try it yourself &#9656;';
+    if (open) editable[0].focus();
+  });
 
   editable.forEach(span => {
     // Prevent line breaks inside the inline fields.
