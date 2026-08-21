@@ -101,8 +101,11 @@
   /* ---------- SECTIONS ---------- */
   section{margin-bottom:6px;}
   h2{
-    font-family:var(--mono); font-size:.8rem; text-transform:uppercase; letter-spacing:.12em;
-    color:var(--text-faint); font-weight:700; margin:0 0 20px;
+    font-family:var(--mono); font-size:1.4rem; text-transform:uppercase; letter-spacing:.06em;
+    color:var(--text); font-weight:700; margin:0 0 26px; position:relative; padding-bottom:14px;
+  }
+  h2::after{
+    content:""; position:absolute; left:0; bottom:0; width:46px; height:3px; background:var(--link);
   }
 
   /* career */
@@ -178,7 +181,7 @@
 
   <div class="fretish">
     <p class="fretish-label">FRETish requirement</p>
-    <p class="fretish-sentence">In <span class="tag mode">visitor mode</span>, upon <span class="tag condition">your arrival at this page</span>, <span class="tag component">the site</span> <span class="tag shall">shall</span> <span class="tag timing">eventually</span> <span class="tag response">show you how Anastasia turns ambiguous requirements into specifications an autonomous system can be verified against</span>.</p>
+    <p class="fretish-sentence">In <span class="tag mode">visitor mode</span>, upon <span class="tag condition">your arrival at this page</span>, <span class="tag component">the site</span> <span class="tag shall">shall</span> <span class="tag timing">immediately</span> <span class="tag response">show you how Anastasia turns ambiguous requirements into specifications an autonomous system can be verified against</span>.</p>
     <div id="parseRow" class="parse-row">
       <div class="parse-item"><span class="lbl" style="color:var(--fret-mode)">mode</span><span class="val">who this applies to: anyone visiting</span></div>
       <div class="parse-item"><span class="lbl" style="color:var(--fret-condition)">condition</span><span class="val">what triggers the response: landing on the page</span></div>
@@ -194,8 +197,8 @@
 
   <section id="about">
     <h2>about</h2>
-    <p>I am a member of the <a href="https://www.nasa.gov/intelligent-systems-division/robust-software-engineering/" target="_blank" rel="noopener">Robust Software Engineering (RSE) Group</a> at <a href="https://www.nasa.gov/ames/" target="_blank" rel="noopener">NASA Ames Research Center</a>, where I research and build tools for verifying and validating safety-critical systems. As Technical Lead of <a href="https://github.com/NASA-SW-VnV/fret" target="_blank" rel="noopener">FRET</a>, I lead a team of engineers and researchers building an open-source tool that turns natural-language requirements into precise, formally analyzable specifications.</p>
-    <p>In collaboration with engineers, I apply FRET to help verify complex, often autonomous, aerospace systems before they fly.</p>
+    <p>I'm the Technical Lead of <a href="https://github.com/NASA-SW-VnV/fret" target="_blank" rel="noopener">FRET</a>, NASA's open-source tool that turns ambiguous, natural-language requirements into precise specifications a machine can check, and I lead the team of engineers and researchers who build it. I'm also a member of the <a href="https://www.nasa.gov/intelligent-systems-division/robust-software-engineering/" target="_blank" rel="noopener">Robust Software Engineering (RSE) Group</a> at <a href="https://www.nasa.gov/ames/" target="_blank" rel="noopener">NASA Ames Research Center</a>, where I research and build tools for verifying and validating safety-critical systems.</p>
+    <p>In collaboration with engineers, I apply <a href="https://github.com/NASA-SW-VnV/fret" target="_blank" rel="noopener">FRET</a> to help verify complex, often autonomous, aerospace systems before they fly.</p>
     <p>I completed my postdoctoral research at <a href="https://www.vanderbilt.edu" target="_blank" rel="noopener">Vanderbilt University</a>'s <a href="https://isis.vanderbilt.edu" target="_blank" rel="noopener">Institute for Software Integrated Systems</a>, working under <a href="https://www.isis.vanderbilt.edu/user/46" target="_blank" rel="noopener">Prof. Janos Sztipanovits</a>. I hold a Doctor of Science from <a href="https://www.epfl.ch" target="_blank" rel="noopener">&Eacute;cole Polytechnique F&eacute;d&eacute;rale de Lausanne (EPFL)</a>, where I was fortunate to be advised by <a href="https://sifakis.net" target="_blank" rel="noopener">Prof. Joseph Sifakis</a> (<a href="https://amturing.acm.org/award_winners/sifakis_1701095.cfm" target="_blank" rel="noopener">2007 Turing Award</a> laureate) and <a href="https://www.bliudze.me/simon/" target="_blank" rel="noopener">Prof. Simon Bliudze</a>.</p>
   </section>
 
@@ -205,23 +208,23 @@
     <h2>news</h2>
     <div class="news-entry">
       <span class="news-date">2026</span>
-      <p>Delivered the keynote &ldquo;Fighting AI with AI: A Requirements-based Approach&rdquo; at the Software Engineering and AI Symposium, Hasso Plattner Institute, Germany, on using foundation models to assure AI-enabled systems starting from formal requirements.</p>
+      <p>Delivered the keynote &ldquo;Fighting AI with AI: A Requirements-based Approach&rdquo; at the <a href="https://blatzheim.github.io/seais-symposium/" target="_blank" rel="noopener">Software Engineering and AI Symposium</a>, <a href="https://hpi.de/en/" target="_blank" rel="noopener">Hasso Plattner Institute</a>, Germany, on using foundation models to assure AI-enabled systems starting from formal requirements. The ideas behind the talk are laid out in <a href="https://arxiv.org/pdf/2511.20627" target="_blank" rel="noopener">&ldquo;Fighting AI with AI: Leveraging Foundation Models for Assuring AI-Enabled Safety-Critical Systems&rdquo;</a>.</p>
     </div>
     <div class="news-entry">
       <span class="news-date">2026</span>
-      <p>Five papers accepted this year, spanning ICSE, NFM, FM, and FormaliSE: on using LLMs to automatically formalize requirements, running FRET on resource-constrained embedded systems alongside R2U2, and a full tutorial on requirements elicitation, formalization, and analysis with FRET.</p>
+      <p>Multiple papers accepted this year at conferences including <a href="https://conf.researchr.org/home/icse-2026" target="_blank" rel="noopener">ICSE</a>, <a href="https://nfm2026.github.io/" target="_blank" rel="noopener">NFM</a>, <a href="https://conf.researchr.org/home/fm-2026" target="_blank" rel="noopener">FM</a>, and <a href="https://2026.formalise.org/" target="_blank" rel="noopener">FormaliSE</a>: <a href="https://www-cs.stanford.edu/people/trippel/pubs/mendoza_ICSE26.pdf" target="_blank" rel="noopener">&ldquo;Automating Requirements Formalization: Using LLMs and Low-Complexity Distinguishing Traces for Semantic Validation&rdquo;</a>, <a href="https://link.springer.com/chapter/10.1007/978-3-032-28079-4_4" target="_blank" rel="noopener">&ldquo;Resource-Constrained Systems: Integrating FRET and R2U2&rdquo;</a>, running <a href="https://github.com/NASA-SW-VnV/fret" target="_blank" rel="noopener">FRET</a> alongside <a href="https://github.com/R2U2/R2U2" target="_blank" rel="noopener">R2U2</a>, and <a href="https://link.springer.com/chapter/10.1007/978-3-032-26220-2_21" target="_blank" rel="noopener">&ldquo;Requirements Elicitation, Formalization, and Analysis with FRET: A Tutorial&rdquo;</a>.</p>
     </div>
     <div class="news-entry">
       <span class="news-date">2026</span>
-      <p>&ldquo;A Taxonomy of Human-Robot Teamwork Requirements,&rdquo; co-authored with Hazel Taylor, Sandy Lozito, Louise Dennis, Michael Fisher, and Marie Farrell, accepted at RE 2026, proposing a taxonomy for classifying requirements around how humans and robots coordinate as a team, not just how a single robot behaves on its own.</p>
+      <p><a href="https://arxiv.org/abs/2607.27302" target="_blank" rel="noopener">&ldquo;A Taxonomy of Human-Robot Teamwork Requirements&rdquo;</a>, co-authored with <a href="https://research.manchester.ac.uk/en/persons/hazel.taylor/" target="_blank" rel="noopener">Hazel Taylor</a>, <a href="https://human-factors.arc.nasa.gov/organization/personnel_view.php?personnel_id=141" target="_blank" rel="noopener">Sandy Lozito</a>, <a href="https://personalpages.manchester.ac.uk/staff/louise.dennis/" target="_blank" rel="noopener">Louise Dennis</a>, <a href="https://research.manchester.ac.uk/en/persons/michael.fisher" target="_blank" rel="noopener">Michael Fisher</a>, and <a href="https://mariefarrell.github.io/" target="_blank" rel="noopener">Marie Farrell</a>, accepted at <a href="https://conf.researchr.org/home/RE-2026" target="_blank" rel="noopener">RE 2026</a>, proposing a taxonomy for classifying requirements around how humans and robots coordinate as a team, not just how a single robot behaves on its own.</p>
     </div>
     <div class="news-entry">
       <span class="news-date">2025</span>
-      <p>Co-edited the proceedings of FormaliSE 2025, the International Conference on Formal Methods in Software Engineering, for Springer, with Gwen Sala&uuml;n.</p>
+      <p>Co-edited the proceedings of <a href="https://2025.formalise.org/" target="_blank" rel="noopener">FormaliSE 2025</a>, the International Conference on Formal Methods in Software Engineering, for Springer, with <a href="http://convecs.inria.fr/people/Gwen.Salaun/" target="_blank" rel="noopener">Gwen Sala&uuml;n</a>.</p>
     </div>
     <div class="news-entry">
       <span class="news-date">2025</span>
-      <p>Gave invited lectures on FRET at SPACERAISE, an international doctoral school in L&rsquo;Aquila, Italy, training the next generation of space software engineers in AI, robotics, and digital twins for the space sector.</p>
+      <p>Gave invited lectures on <a href="https://github.com/NASA-SW-VnV/fret" target="_blank" rel="noopener">FRET</a> at <a href="https://spaceraise.academy/" target="_blank" rel="noopener">SPACERAISE</a>, an international doctoral school in L&rsquo;Aquila, Italy, training the next generation of space software engineers in AI, robotics, and digital twins for the space sector.</p>
     </div>
   </section>
 
@@ -237,7 +240,7 @@
 
     <div class="t-entry">
       <span class="t-date">Jul 2018 to Jul 2022</span>
-      <p><b>Research Scientist</b>, KBR Inc. at NASA Ames Research Center. I worked on connecting FRET to downstream analysis tools for model checking and runtime monitoring.</p>
+      <p><b>Research Scientist</b>, KBR Inc. at NASA Ames Research Center. I worked on connecting <a href="https://github.com/NASA-SW-VnV/fret" target="_blank" rel="noopener">FRET</a> to downstream analysis tools for model checking and runtime monitoring.</p>
     </div>
 
     <div class="t-entry">
@@ -261,8 +264,6 @@
     </div>
 
   </section>
-
-  <hr>
 
   <hr>
 
